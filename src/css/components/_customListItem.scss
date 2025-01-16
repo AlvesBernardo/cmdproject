@@ -1,0 +1,70 @@
+.customListItemContainer {
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dataContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.dataItem {
+  margin: 0;
+  padding: 5px 0;
+}
+
+.dataItemEmail {
+  margin: 0;
+  padding: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  // font-size: 1rem;
+  display: block;
+  // line-height: 1.2;
+}
+
+.dataItemStudio {
+  margin: 0;
+  padding: 5px 10px;
+  justify-self: center;
+  background-color: #32cd32;
+  color: white;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+
+  min-width: 100px;
+  min-height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.customListItemButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .customListItemContainer {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+
+  .customListItemButtonContainer {
+    justify-content: flex-start;
+  }
+}

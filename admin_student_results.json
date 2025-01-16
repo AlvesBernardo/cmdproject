@@ -1,0 +1,72 @@
+[
+  { 
+    "id": 1, 
+    "name": "John Smith", 
+    "email": "john.smith@student.nhlstenden.com", 
+    "studio": "IT", 
+    "semester": "2023-2024 Semester one"
+  },
+  { 
+    "id": 2, 
+    "name": "Walter White", 
+    "email": "walter.white@student.nhlstenden.com", 
+    "studio": "Business", 
+    "semester": "2023-2024 Semester two"
+  },
+  { 
+    "id": 3, 
+    "name": "Hank Green", 
+    "email": "hank.green@student.nhlstenden.com", 
+    "studio": "Economics", 
+    "semester": "2023-2024 Semester one"
+  },
+  { 
+    "id": 4, 
+    "name": "Bobbie Black", 
+    "email": "bobbie.black@student.nhlstenden.com", 
+    "studio": "Law", 
+    "semester": "2023-2024 Semester two"
+  },
+  { 
+    "id": 5, 
+    "name": "Dave von Hamburg", 
+    "email": "dave.von.hamburg@student.nhlstenden.com", 
+    "studio": "Computer Science", 
+    "semester": "2024-2025 Semester one"
+  },
+  { 
+    "id": 6, 
+    "name": "John Smith", 
+    "email": "john.smith@student.nhlstenden.com", 
+    "studio": "IT", 
+    "semester": "2023-2024 Semester one"
+  },
+  { 
+    "id": 7, 
+    "name": "Walter White", 
+    "email": "walter.white@student.nhlstenden.com", 
+    "studio": "Business", 
+    "semester": "2023-2024 Semester two"
+  },
+  { 
+    "id": 8, 
+    "name": "Hank Green", 
+    "email": "hank.green@student.nhlstenden.com", 
+    "studio": "Economics", 
+    "semester": "2023-2024 Semester one"
+  },
+  { 
+    "id": 9, 
+    "name": "Bobbie Black", 
+    "email": "bobbie.black@student.nhlstenden.com", 
+    "studio": "Law", 
+    "semester": "2023-2024 Semester two"
+  },
+  { 
+    "id": 10, 
+    "name": "Dave von Hamburg", 
+    "email": "dave.von.hamburg@student.nhlstenden.com", 
+    "studio": "Computer Science", 
+    "semester": "2024-2025 Semester one"
+  }
+]

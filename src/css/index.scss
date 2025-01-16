@@ -1,0 +1,22 @@
+/*************Tailwind*************/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*************Constance*************/
+@import "constance/general";
+@import "constance/colors";
+
+/*************Components*************/
+@import "components/customButton";
+@import "components/customHeader";
+@import "components/customList";
+@import "components/customListItem";
+
+
+/*************Screens*************/
+@import "screens/dashboard";
+@import "screens/signIn";
+@import "screens/signUp";
+@import "screens/studentDashboard";
+@import "screens/manageStudios";

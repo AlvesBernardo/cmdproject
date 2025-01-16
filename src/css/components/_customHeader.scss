@@ -1,0 +1,47 @@
+.customHeaderContainer {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e4ecf4;
+
+  /* --- Responsive: Mobile Screens --- */
+  @media (max-width: 768px) {
+    /* Switch to a column layout on smaller screens */
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  /* --- Responsive: Mobile Screens --- */
+  @media (max-width: 768px) {
+    margin-bottom: 1rem; /* add spacing between the profile and button on mobile */
+  }
+
+  .profileDetailsContainer {
+    color: #1763ad;
+    font-size: 20px;
+
+    /* --- Responsive: Mobile Screens --- */
+    @media (max-width: 768px) {
+      font-size: 16px; /* scale down text on smaller screens */
+      text-align: center;
+    }
+  }
+}
+
+.dashboardButtonContainer {
+  /* --- Responsive: Mobile Screens --- */
+  @media (max-width: 768px) {
+    width: 100%;              /* let the button container take full width */
+    display: flex;
+    justify-content: center;  /* center the button */
+  }
+}

@@ -1,0 +1,72 @@
+$primary-color: #3b82f6;
+$primary-hover: #2563eb;
+$secondary-color: #ffffff;
+$secondary-hover: #f0f9ff;
+$text-dark: #1f2937;
+$text-gray: #6b7280;
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-column: 1/10;
+    min-height: 100vh;
+    background-color: #E4ECF4;
+    padding: 2em;
+}
+
+.logout-section {
+    display: flex;
+    grid-column: 9/10;
+    justify-content: flex-end;
+    max-height: 3em;
+}
+
+.dashboard-section {
+    grid-column: 4/7;
+    padding: 2rem;
+    text-align: center;
+
+  .profile-section {
+    margin-bottom: 2rem;
+
+    .profile-avatar {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+
+    .profile-name {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $text-dark;
+    }
+
+    .profile-email {
+      font-size: 0.875rem;
+      color: $text-gray;
+    }
+  }
+
+  .buttons-section {
+    display: flex;
+    margin-bottom: 0.5em;
+    justify-content: space-evenly;
+  }
+
+  .second-button-line-section {
+    display: flex;
+    height: 50px;
+  }
+
+  img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    background-color: #f0f0f0;
+    }
+}
