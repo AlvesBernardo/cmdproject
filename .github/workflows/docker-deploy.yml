@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - main  # Change this to your default branch if it's not 'main'
+      - master  # Change this to your default branch if it's not 'main'
 
 jobs:
   build-and-deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Ensure your project uses a compatible Node.js version
+        node-version: '18'  # Ensure your project uses a compatible Node.js version
 
     - name: Install Dependencies
       run: npm install
@@ -32,4 +32,4 @@ jobs:
       with:
         branch: gh-pages  # Deploy to the gh-pages branch
         folder: dist      # Vite build output is placed in the 'dist' folder
-        token: ${{ secrets.GITHUB_TOKEN }}  # Ensure this is set up correctly
+        token: ${{ secrets.PAT_TOKEN }}  # Ensure this is set up correctly
