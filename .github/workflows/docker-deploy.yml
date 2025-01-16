@@ -32,8 +32,4 @@ jobs:
       with:
         branch: gh-pages  # Deploy to the gh-pages branch
         folder: dist      # Vite build output is placed in the 'dist' folder
-<<<<<<< HEAD
         token: ${{ secrets.PAT_TOKEN }}  # Ensure this is set up correctly
-=======
-        token: ${{ secrets.PAT_TOKEN }}  # Ensure this is set up correctly
->>>>>>> 537e541bf343fd7425113fd878abb8fe40c9aa21
