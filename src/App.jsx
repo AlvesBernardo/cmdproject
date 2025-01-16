@@ -16,7 +16,7 @@ import AdminResults from "./screens/AdminResults/AdminResults.jsx";
 
 function App() {
     return (
-        <BrowserRouter basename="/CMDFrontend"> {/* Set the basename here */}
+        <BrowserRouter basename="/cmdproject"> {/* Set the basename here */}
             <ToastContainer />
             <Routes>
                 <Route path="/" element={<SignIn />} />
