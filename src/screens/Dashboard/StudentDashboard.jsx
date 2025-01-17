@@ -44,7 +44,7 @@ const StudentDashboard = () => {
   }
 
   const toResults = () => {
-    navigate("/results")
+    navigate("/studentresults")
   }
 
   return (

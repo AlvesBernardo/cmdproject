@@ -1,11 +1,10 @@
-import React from "react";
 import { ClipLoader } from "react-spinners";
 
 function CustomButton({ text, onClick, type = "button", isLoading, children, width = "100%", color = "primary" }) {
     const colorStyles = {
         primary: "bg-primary text-white border-primary hover:bg-white hover:text-primary",
         secondary: "bg-white text-primary border-primary hover:bg-primary hover:text-white",
-        error: "bg-white text-red border-red hover:bg-red hover:text-white",
+        error: "bg-white text-red border-danger hover:bg-red hover:text-white",
         warning: "bg-warning text-white border-warning hover:bg-white hover:text-warning",
     };
 

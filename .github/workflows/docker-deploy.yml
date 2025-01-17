@@ -3,7 +3,7 @@ name: Deploy React App
 on:
   push:
     branches:
-      - master  # Change this to your default branch if it's not 'main'
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,23 +13,6 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'  # Ensure your project uses a compatible Node.js version
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Build React App
-      run: npm run build
-
-    - name: List dist folder
-      run: ls -la dist  # This will help you verify that the build output is correct
-
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages  # Deploy to the gh-pages branch
-        folder: dist      # Vite build output is placed in the 'dist' folder
-        token: ${{ secrets.GITHUB_TOKEN }}  # Ensure this is set up correctly
+    - name: Build and Run Docker Image
+      run: |
+        docker-compose -f docker-compose.yml up --build -d

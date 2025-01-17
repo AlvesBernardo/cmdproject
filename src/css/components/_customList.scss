@@ -61,3 +61,21 @@
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 10px;
 }
+
+.listTableContainer {
+  background-color: #e4ecf4;
+}
+
+.listTable {
+
+}
+
+.listHeader {
+  border-radius: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+.listItem {
+  border-radius: 20px !important;
+  margin-bottom: 30px !important;
+}

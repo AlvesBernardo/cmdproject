@@ -96,7 +96,8 @@ function SignUp () {
             };
 
             try {
-                await api.post('/student/register', data);
+                const response = await api.post('/student/register', data);
+                console.log(response)
 
                 toast.success("You successfully registered, please login!");
                 navigate('/');
@@ -128,21 +129,21 @@ function SignUp () {
                     <form onSubmit={onSubmit} className="space-y-6">
                         {nameError !== null ?
                             <div>
-                                <div className="relative">
+                                <div className="form-floating">
                                     <input
-                                        id="name_error"
+                                        className="form-control rounded"
+                                        id="floatingInput"
+                                        placeholder="name@example.com"
                                         name="name"
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         aria-describedby="name_error"
-                                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 appearance-none dark:text-black dark:border-red border-red dark:focus:border-red focus:outline-none focus:ring-0 focus:border-red peer"
-                                        placeholder=" "/>
-                                    <label htmlFor="name_error"
-                                           className="absolute text-sm text-red dark:text-red duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                                        Full name
-                                    </label>
+                                    />
+
+                                    <label htmlFor="floatingInput">Full name</label>
                                 </div>
+
                                 <p id="name_error"
                                    className="mt-2 text-xs text-red dark:text-red">
                                     <span className="font-medium">Oh!</span>
@@ -150,38 +151,39 @@ function SignUp () {
                                 </p>
                             </div>
                             :
-                            <div className="relative">
-                                <input id="name"
-                                       name="name"
-                                       type="text"
-                                       value={name}
-                                       onChange={(e) => setName(e.target.value)}
-                                       className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                       placeholder=" "/>
-                                <label htmlFor="name"
-                                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                    Full name
-                                </label>
+                            <div className="form-floating">
+                                <input
+                                    className="form-control rounded"
+                                    id="floatingInput"
+                                    placeholder="name@example.com"
+                                    name="name"
+                                    type="text"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+
+                                <label htmlFor="floatingInput">Full name</label>
                             </div>
+
                         }
 
                         {emailError !== null ?
                             <div>
-                                <div className="relative">
+                                <div className="form-floating">
                                     <input
-                                        id="email_error"
+                                        className="form-control rounded"
+                                        id="floatingInput"
+                                        placeholder="name@example.com"
                                         name="email"
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         aria-describedby="email_error"
-                                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 appearance-none dark:text-black dark:border-red border-red dark:focus:border-red focus:outline-none focus:ring-0 focus:border-red peer"
-                                        placeholder=" "/>
-                                    <label htmlFor="email_error"
-                                           className="absolute text-sm text-red dark:text-red duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                                        Email address
-                                    </label>
+                                    />
+
+                                    <label htmlFor="floatingInput">Email address</label>
                                 </div>
+
                                 <p id="email_error"
                                    className="mt-2 text-xs text-red dark:text-red">
                                     <span className="font-medium">Oh!</span>
@@ -189,38 +191,38 @@ function SignUp () {
                                 </p>
                             </div>
                             :
-                            <div className="relative">
-                                <input id="email"
-                                       name="email"
-                                       type="email"
-                                       value={email}
-                                       onChange={(e) => setEmail(e.target.value)}
-                                       className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                       placeholder=" "/>
-                                <label htmlFor="email"
-                                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                    Email address
-                                </label>
+                            <div className="form-floating">
+                                <input
+                                    className="form-control rounded"
+                                    id="floatingInput"
+                                    placeholder="name@example.com"
+                                    name="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+
+                                <label htmlFor="floatingInput">Email address</label>
                             </div>
                         }
 
                         {passwordError !== null ?
                             <div>
-                                <div className="relative">
+                                <div className="form-floating">
                                     <input
-                                        id="password"
+                                        className="form-control rounded"
+                                        id="floatingInput"
+                                        placeholder="name@example.com"
                                         name="password"
                                         type="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         aria-describedby="password_error"
-                                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 appearance-none dark:text-black dark:border-red border-red dark:focus:border-red focus:outline-none focus:ring-0 focus:border-red peer"
-                                        placeholder=" "/>
-                                    <label htmlFor="password_error"
-                                           className="absolute text-sm text-red dark:text-red duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                                        Password
-                                    </label>
+                                    />
+
+                                    <label htmlFor="floatingInput">Password</label>
                                 </div>
+
                                 <p id="password_error"
                                    className="mt-2 text-xs text-red dark:text-red">
                                     <span className="font-medium">Oh!</span>
@@ -228,39 +230,39 @@ function SignUp () {
                                 </p>
                             </div>
                             :
-                            <div className="relative">
-                                <input id="password"
-                                       name="password"
-                                       type="password"
-                                       value={password}
-                                       onChange={(e) => setPassword(e.target.value)}
-                                       className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                       placeholder=" "/>
-                                <label htmlFor="password"
-                                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                    Password
-                                </label>
+                            <div className="form-floating">
+                                <input
+                                    className="form-control rounded"
+                                    id="floatingInput"
+                                    placeholder="name@example.com"
+                                    name="password"
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+
+                                <label htmlFor="floatingInput">Password</label>
                             </div>
 
                         }
 
                         {repeatPasswordError !== null ?
                             <div>
-                                <div className="relative">
+                                <div className="form-floating">
                                     <input
-                                        id="repeatPassword"
+                                        className="form-control rounded"
+                                        id="floatingInput"
+                                        placeholder="name@example.com"
                                         name="repeatPassword"
                                         type="password"
                                         value={repeatPassword}
                                         onChange={(e) => setRepeatPassword(e.target.value)}
                                         aria-describedby="repeatPassword_error"
-                                        className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 appearance-none dark:text-black dark:border-red border-red dark:focus:border-red focus:outline-none focus:ring-0 focus:border-red peer"
-                                        placeholder=" "/>
-                                    <label htmlFor="repeatPassword_error"
-                                           className="absolute text-sm text-red dark:text-red duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                                        Repeat password
-                                    </label>
+                                    />
+
+                                    <label htmlFor="floatingInput">Repeat password</label>
                                 </div>
+
                                 <p id="repeatPassword_error"
                                    className="mt-2 text-xs text-red dark:text-red">
                                     <span className="font-medium">Oh!</span>
@@ -268,18 +270,18 @@ function SignUp () {
                                 </p>
                             </div>
                             :
-                            <div className="relative">
-                                <input id="repeatPassword"
-                                       name="repeatPassword"
-                                       type="password"
-                                       value={repeatPassword}
-                                       onChange={(e) => setRepeatPassword(e.target.value)}
-                                       className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                       placeholder=" "/>
-                                <label htmlFor="password"
-                                       className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                    Repeat password
-                                </label>
+                            <div className="form-floating">
+                                <input
+                                    className="form-control rounded"
+                                    id="floatingInput"
+                                    placeholder="name@example.com"
+                                    name="repeatPassword"
+                                    type="password"
+                                    value={repeatPassword}
+                                    onChange={(e) => setRepeatPassword(e.target.value)}
+                                />
+
+                                <label htmlFor="floatingInput">Repeat password</label>
                             </div>
 
                         }
@@ -323,21 +325,20 @@ function SignUp () {
                             <div>
                                 {studentNumberError !== null ?
                                     <div>
-                                        <div className="relative">
+                                        <div className="form-floating">
                                             <input
-                                                id="studentNumber"
+                                                className="form-control rounded"
+                                                id="floatingInput"
+                                                placeholder="name@example.com"
                                                 name="studentNumber"
                                                 type="number"
                                                 value={studentNumber}
                                                 onChange={(e) => setStudentNumber(e.target.value)}
-                                                aria-describedby="studentNumber_error"
-                                                className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 appearance-none dark:text-black dark:border-red border-red dark:focus:border-red focus:outline-none focus:ring-0 focus:border-red peer"
-                                                placeholder=" "/>
-                                            <label htmlFor="studentNumber_error"
-                                                   className="absolute text-sm text-red dark:text-red duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 start-1 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                                                Student number
-                                            </label>
+                                            />
+
+                                            <label htmlFor="floatingInput">Student number</label>
                                         </div>
+
                                         <p id="studentNumber_error"
                                            className="mt-2 text-xs text-red dark:text-red">
                                             <span className="font-medium">Oh!</span>
@@ -345,19 +346,18 @@ function SignUp () {
                                         </p>
                                     </div>
                                     :
-                                    <div className="relative">
-                                        <input id="studentNumber"
-                                               name="studentNumber"
-                                               type="number"
+                                    <div className="form-floating">
+                                        <input
+                                            className="form-control rounded"
+                                            id="floatingInput"
+                                            placeholder="name@example.com"
+                                            name="studentNumber"
+                                            type="number"
+                                            value={studentNumber}
+                                            onChange={(e) => setStudentNumber(e.target.value)}
+                                        />
 
-                                               value={studentNumber}
-                                               onChange={(e) => setStudentNumber(e.target.value)}
-                                               className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                               placeholder=" "/>
-                                        <label htmlFor="studentNumber"
-                                               className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">
-                                            Student number
-                                        </label>
+                                        <label htmlFor="floatingInput">Student Number</label>
                                     </div>
                                 }
                             </div>

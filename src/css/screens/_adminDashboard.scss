@@ -51,13 +51,14 @@ $text-gray: #6b7280;
 
   .buttons-section {
     display: flex;
-    margin-bottom: 0.5em;
     justify-content: space-evenly;
   }
 
   .second-button-line-section {
     display: flex;
-    height: 50px;
+    justify-content: space-evenly;
+    gap: 1.5em;
+    height: 3em;
   }
 
   img {

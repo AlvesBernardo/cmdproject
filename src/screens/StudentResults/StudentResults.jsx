@@ -1,6 +1,5 @@
 import CustomHeader from "../../components/CustomHeader/CustomHeader.jsx";
-import CustomList from "../../components/CustomList/CustomList.jsx";
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import api from "../../helpers/AxiosInstance.js";
 
 function StudentResults () {
@@ -13,7 +12,8 @@ function StudentResults () {
   const fetchResults = async () => {
     setLoading(true);
     try {
-      const response = await api.get("api/v1/results");
+      const response = await api.get("api/v1/answers");
+      console.log(response)
       if (response.data.data.length > 0) {
         setList(response.data.data);
       } else {
@@ -65,25 +65,31 @@ function StudentResults () {
         ) : error ? (
             <p className="text-red-500 mb-9">{error}</p>
         ) : (
-            <div className="studioListContainer">
-              {/* Header Row */}
-              <div className="studioListHeader grid grid-cols-5 gap-4 font-bold mb-2">
-                <span>Name</span>
-                <span>Email</span>
-                <span>Accepted Studio</span>
-              </div>
-              {/* Custom List */}
-              <CustomList
-                  list={list}
-                  hasRemoveButton={true}
-                  hasEditButton={true}
-                  onRemove={handleRemove}
-                  onEdit={handleEdit}
-              />
-            </div>
-        )}
-      </div>
-  )
+
+          <div className={"listTableContainer w-100 px-5"}>
+            <table className="listTable table rounded-lg overflow-hidden">
+              <thead className={"listHeader"}>
+              <tr className={"listItem"}>
+                <th scope="col">Selected Studio</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              {list.map((studio) => (
+                  <tr key={studio.idStudio}>
+                    <th scope="row">{studio.dtStudioName}</th>
+                    <td>{studio.dtStudioCapacity}</td>
+                    <td>{studio.dtStatus}</td>
+                  </tr>
+              ))}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
+  </div>
+)
 }
 
 export default StudentResults

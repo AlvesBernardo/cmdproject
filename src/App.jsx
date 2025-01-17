@@ -13,22 +13,24 @@ import StudentList from "./screens/StudentList/StudentList.jsx";
 import AdminRoutes from "./helpers/AdminRoutes.jsx";
 import StudentRoutes from "./helpers/StudentRoutes.jsx";
 import AdminResults from "./screens/AdminResults/AdminResults.jsx";
+import Events from "./screens/Events/Events.jsx";
 
 function App() {
     return (
-        <BrowserRouter basename="/CMDFrontend"> {/* Set the basename here */}
+        <BrowserRouter>
             <ToastContainer />
             <Routes>
                 <Route path="/" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route element={<ProtectedRoute />}>
-                    <Route element={<AdminRoutes />}>
+                    <Route element={<AdminRoutes/>}>
                         <Route path="/adminDashboard" element={<AdminDashboard />} />
                         <Route path="/manageStudios" element={<ManageStudios />} />
                         <Route path="/studentList" element={<StudentList />} />
                         <Route path="/adminResults" element={<AdminResults />} />
+                        <Route path="/events" element={<Events />} />
                     </Route>
-                    <Route element={<StudentRoutes />}>
+                    <Route element={<StudentRoutes/>}>
                         <Route path="/studentDashboard" element={<StudentDashboard />} />
                         <Route path="/questionnaire" element={<Questionnaire />} />
                         <Route path="/studentresults" element={<StudentResults />} />

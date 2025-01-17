@@ -2,12 +2,16 @@ import React, { useState, useEffect, useRef } from "react";
 import "../../css/screens/_questionnaire.scss";
 import CustomHeader from "../../components/CustomHeader/CustomHeader.jsx";
 import CustomButton from "../../components/CustomButton/CustomButton.jsx";
+import TokenManager from "../../helpers/TokenManager";
 import { MdOutlineDashboard } from "react-icons/md";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import api from "../../helpers/AxiosInstance.js";
 
 function DraggableItem({ text, onDragStart, isDropped }) {
   const itemRef = useRef(null);
+  const [profile, setProfile] = useState({ dtStudentNumber: ""});
+
 
   const adjustFontSize = () => {
     const element = itemRef.current;
@@ -62,17 +66,36 @@ function Questionnaire() {
 
   useEffect(() => {
     fetch("/questions.json")
-      .then((response) => response.json())
-      .then((data) => setQuestions(data));
+        .then((response) => response.json())
+        .then((data) => setQuestions(data));
 
     fetch("/user.json")
-      .then((response) => response.json())
-      .then((data) => setUser(data));
+        .then((response) => response.json())
+        .then((data) => setUser(data));
 
-    fetch("/courses.json")
-      .then((response) => response.json())
-      .then((data) => setCourses(data));
+    fetchStudios();
   }, []);
+
+  const fetchStudios = async () => {
+    try {
+        const response = await api.get("api/v1/studios");
+        console.log("Fetched studios:", response.data.data);
+
+        const studios = response.data.data.map(studio => ({
+            id: studio.idStudio,
+            name: studio.dtStudioName,
+            capacity: studio.dtCapacity,
+            isBookable: studio.dtIsBookable
+        }));
+
+        setCourses(studios);
+    } catch (err) {
+        console.error("Error fetching studios:", err);
+        alert("Failed to fetch courses. Please try again later.");
+    }
+};
+
+
 
   const handleNext = () => {
     if (currentStep < questions.length - 1) {
@@ -86,20 +109,37 @@ function Questionnaire() {
     }
   };
 
-  const handleSubmit = () => {
-    const answers = questions.map((q) => {
-      if (q.type === "multiple-choice") {
-        return { id: q.id, question: q.question, answer: choices };
-      }
-      return { id: q.id, question: q.question, answer: q.answer || "" };
-    });
 
-    fetch("/submit-answers", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(answers),
-    }).then(() => alert("Your answers have been submitted successfully!"));
-  };
+const handleSubmit = async () => {
+  try {
+      const student_id = TokenManager.getUserId();
+
+      const answers = JSON.stringify(
+          questions.map((q) => ({
+              id: q.id,
+              question: q.question,
+              answer: q.type === "multiple-choice" ? choices : (q.answer || ""),
+          }))
+      );
+
+      const payload = {
+          student_id,
+          answers,
+          choices
+      };
+
+      console.log("Submitting payload:", payload);
+
+      await api.post("/api/v1/answers", payload);
+
+      alert("Your answers have been submitted successfully!");
+  } catch (err) {
+      console.error("Error submitting answers:", err);
+      alert("Failed to submit your answers. Please try again.");
+  }
+};
+
+
 
   const onDragStart = (item) => {
     setDraggedItem(item);
@@ -121,15 +161,16 @@ function Questionnaire() {
   const renderAvailableOptions = () => {
     const usedChoices = Object.values(choices);
     return courses
-      .filter((course) => !usedChoices.includes(course.name))
-      .map((course) => (
-        <DraggableItem
-          key={course.id}
-          text={course.name}
-          onDragStart={() => onDragStart(course.name)}
-        />
-      ));
-  };
+        .filter((course) => !usedChoices.includes(course.name))
+        .map((course) => (
+            <DraggableItem
+                key={course.id}
+                text={course.name}
+                onDragStart={() => onDragStart(course.name)}
+            />
+        ));
+};
+
 
   const renderDropZones = () => {
     return ["first", "second", "third"].map((choice) => (

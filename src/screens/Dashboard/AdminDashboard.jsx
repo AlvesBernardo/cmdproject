@@ -52,6 +52,10 @@ const AdminDashboard = () => {
     navigate('/adminResults')
   }
 
+  const toEvents = () => {
+    navigate('/events')
+  }
+
   return (
     <div className="dashboard-container">
       <div className="logout-section">
@@ -84,6 +88,10 @@ const AdminDashboard = () => {
         </div>
         <div className="second-button-line-section">
           <CustomButton text={"Results"} color={"secondary"} onClick={toResults}>
+            <MdOutlineQuestionAnswer size={27} className={"pr-1"}/>
+          </CustomButton>
+
+          <CustomButton text={"Events"} color={"primary"} onClick={toEvents}>
             <MdOutlineQuestionAnswer size={27} className={"pr-1"}/>
           </CustomButton>
         </div>

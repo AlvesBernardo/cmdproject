@@ -2,7 +2,7 @@ import axios from 'axios';
 import TokenManager from './TokenManager.js';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8000',
+    baseURL: 'http://104.248.203.245:8000/',
 });
 
 const PUBLIC_ENDPOINTS = ['/login/user', '/student/register'];
