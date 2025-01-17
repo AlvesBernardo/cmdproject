@@ -17,7 +17,11 @@ import Events from "./screens/Events/Events.jsx";
 
 function App() {
     return (
+<<<<<<< HEAD
         <BrowserRouter>
+=======
+        <BrowserRouter basename="/cmdproject"> {/* Set the basename here */}
+>>>>>>> ec150f3c63b28e788f4eeea5478e22579dbb17f1
             <ToastContainer />
             <Routes>
                 <Route path="/" element={<SignIn />} />

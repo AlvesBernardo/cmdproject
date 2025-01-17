@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig({
-  base: "/",
+export default defineConfig(({ command }) => ({
+  base: command === "serve" ? "/" : "/cmdproject/",
   plugins: [react()],
   preview: {
     port: 8080,
@@ -14,4 +14,4 @@ export default defineConfig({
     host: true,
     origin: "http://0.0.0.0:8080",
   },
-});
+}));
